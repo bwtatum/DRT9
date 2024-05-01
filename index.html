@@ -3,39 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify Playlist App</title>
+    <title>Spotify Playlist Editor</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to Spotify Playlist Editor</h1>
-    <a href="/login">Log in with Spotify</a>
-    <hr>
-    <form id="searchForm">
-        <input type="text" id="searchKeyword" placeholder="Enter song title">
-        <button type="submit">Search</button>
-    </form>
-    <ul id="results"></ul>
+    <div class="container">
+        <h1>Spotify Playlist Editor</h1>
+        <a href="/login" class="login-button">Log in with Spotify</a>
+        <div class="search-container">
+            <input type="text" id="searchKeyword" placeholder="Enter song title" autocomplete="off">
+            <button onclick="searchTracks()">Search</button>
+        </div>
+        <ul id="results"></ul>
+    </div>
 
-    <script>
-        document.getElementById('searchForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const keyword = document.getElementById('searchKeyword').value;
-            fetch('/search', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ keyword })
-            }).then(response => response.json())
-              .then(tracks => {
-                  const resultsElement = document.getElementById('results');
-                  resultsElement.innerHTML = '';
-                  tracks.forEach(track => {
-                      const li = document.createElement('li');
-                      li.textContent = `${track.name} by ${track.artists.map(artist => artist.name).join(', ')}`;
-                      resultsElement.appendChild(li);
-                  });
-              });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
