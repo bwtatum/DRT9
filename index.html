@@ -8,5 +8,34 @@
 <body>
     <h1>Welcome to Spotify Playlist Editor</h1>
     <a href="/login">Log in with Spotify</a>
+    <hr>
+    <form id="searchForm">
+        <input type="text" id="searchKeyword" placeholder="Enter song title">
+        <button type="submit">Search</button>
+    </form>
+    <ul id="results"></ul>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const keyword = document.getElementById('searchKeyword').value;
+            fetch('/search', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ keyword })
+            }).then(response => response.json())
+              .then(tracks => {
+                  const resultsElement = document.getElementById('results');
+                  resultsElement.innerHTML = '';
+                  tracks.forEach(track => {
+                      const li = document.createElement('li');
+                      li.textContent = `${track.name} by ${track.artists.map(artist => artist.name).join(', ')}`;
+                      resultsElement.appendChild(li);
+                  });
+              });
+        });
+    </script>
 </body>
 </html>
