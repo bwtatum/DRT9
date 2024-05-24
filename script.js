@@ -1,5 +1,11 @@
-const backendUrl = 'http://my-env.eba-xvpxz4mk.us-east-1.elasticbeanstalk.com/'; // Replace with your actual URL
+const backendUrl = 'http://my-env.eba-xvpxz4mk.us-east-1.elasticbeanstalk.com'; // Ensure this is your actual backend URL
 
+// Function to initiate the login process
+function login() {
+    window.location.href = `${backendUrl}/login`;
+}
+
+// Function to handle the search
 function searchTracks() {
     const keyword = document.getElementById('searchKeyword').value;
     fetch(`${backendUrl}/search`, {
@@ -19,3 +25,9 @@ function searchTracks() {
           });
       }).catch(error => console.error('Error:', error));
 }
+
+// Event listener for login button
+document.getElementById('login-button').addEventListener('click', login);
+
+// Event listener for search button
+document.getElementById('search-button').addEventListener('click', searchTracks);
