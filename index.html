@@ -3,20 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify Playlist Editor</title>
+    <title>Spotify Search App</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Spotify Playlist Editor</h1>
-        <a href="/login" class="login-button">Log in with Spotify</a>
-        <div class="search-container">
-            <input type="text" id="searchKeyword" placeholder="Enter song title" autocomplete="off">
-            <button onclick="searchTracks()">Search</button>
-        </div>
-        <ul id="results"></ul>
-    </div>
-
+    <button id="login-button">Login with Spotify</button>
+    <br>
+    <input type="text" id="searchKeyword" placeholder="Enter a keyword">
+    <button id="search-button">Search</button>
+    <ul id="results"></ul>
     <script src="script.js"></script>
 </body>
 </html>
