@@ -1,6 +1,8 @@
+const backendUrl = 'http://my-env.eba-xvpxz4mk.us-east-1.elasticbeanstalk.com/'; // Replace with your actual URL
+
 function searchTracks() {
     const keyword = document.getElementById('searchKeyword').value;
-    fetch('/search', {
+    fetch(`${backendUrl}/search`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
