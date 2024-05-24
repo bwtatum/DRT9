@@ -1,4 +1,4 @@
-const backendUrl = 'http://my-env.eba-xvpxz4mk.us-east-1.elasticbeanstalk.com'; // Ensure this is your actual backend URL
+const backendUrl = 'https://tatumproject.com'; // Updated to use your custom domain with HTTPS
 
 function handleCallback() {
     const params = new URLSearchParams(window.location.search);
