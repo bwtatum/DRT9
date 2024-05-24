@@ -13,7 +13,7 @@ function handleCallback() {
                 // Store tokens in localStorage or handle them as needed
                 localStorage.setItem('accessToken', data.access_token);
                 localStorage.setItem('refreshToken', data.refresh_token);
-                window.location.href = '/'; // Redirect to the home page after successful login
+                window.location.href = '/DRT9/'; // Redirect to the home page after successful login
             })
             .catch(error => console.error('Error handling callback:', error));
     }
