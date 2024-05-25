@@ -1,4 +1,4 @@
-const backendUrl = 'https://tatumproject.com'; // Ensure this is your actual backend URL
+const backendUrl = 'https://tatumproject.com/auth/spotify/callback'; // Ensure this is your actual backend URL
 
 // Function to handle the callback and get the authorization code
 function handleCallback() {
