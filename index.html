@@ -1,49 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Web App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify Playlist Manager</title>
 </head>
 <body>
-    <h1>Welcome to My Web App</h1>
-    <p>Hello, World!</p>
-
-    <!-- Login Form -->
-    <h2>Login</h2>
-    <form id="login-form" action="/login" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <br>
-        <button type="submit">Login</button>
-    </form>
-
-    <script>
-        // Optional: Add JavaScript for enhanced functionality
-        document.getElementById('login-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            fetch('/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ username, password })
-            })
-            .then(response => response.text())
-            .then(data => {
-                alert(data);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        });
-    </script>
+  <h1>Welcome to the Spotify Playlist Manager</h1>
+  <a href="/auth/spotify">Login with Spotify</a>
+  <form id="songForm" style="display:none;">
+    <h2>Add a Song</h2>
+    <input type="text" id="song" placeholder="Enter song name or link">
+    <button type="submit">Add Song</button>
+  </form>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const songForm = document.getElementById('songForm');
+      if (/* check if user is authenticated */) {
+        songForm.style.display = 'block';
+      }
+    });
+  </script>
 </body>
 </html>
