@@ -6,20 +6,8 @@
   <title>Spotify Playlist Manager</title>
 </head>
 <body>
-  <h1>Welcome to the Spotify Playlist Manager</h1>
-  <a href="/auth/spotify">Login with Spotify</a>
-  <form id="songForm" style="display:none;">
-    <h2>Add a Song</h2>
-    <input type="text" id="song" placeholder="Enter song name or link">
-    <button type="submit">Add Song</button>
-  </form>
-  <script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-      const songForm = document.getElementById('songForm');
-      if (/* check if user is authenticated */) {
-        songForm.style.display = 'block';
-      }
-    });
-  </script>
+  <h1>Welcome to Spotify Playlist Manager</h1>
+  <button onclick="window.location.href='https://tatumproject.com/auth/spotify'">Login with Spotify</button>
+  <!-- Add more frontend code here -->
 </body>
 </html>
